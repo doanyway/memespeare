@@ -1,0 +1,6 @@
+framework module Pods_Memespeare {
+  umbrella header "Pods-Memespeare-umbrella.h"
+
+  export *
+  module * { export * }
+}
