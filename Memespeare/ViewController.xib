@@ -25,6 +25,18 @@
                         <constraint firstAttribute="height" constant="185" id="j0B-fR-9NG"/>
                     </constraints>
                 </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y7f-lr-x7p">
+                    <rect key="frame" x="8" y="223" width="135" height="41.5"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="41.5" id="LkP-oM-jvW"/>
+                        <constraint firstAttribute="width" constant="135" id="tJT-CI-LPR"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <state key="normal" title="Random Popular"/>
+                    <connections>
+                        <action selector="buttonPressedNext:" destination="-1" eventType="touchUpInside" id="5cG-Vh-IUw"/>
+                    </connections>
+                </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9te-hI-pid">
                     <rect key="frame" x="208" y="233" width="87" height="23"/>
                     <constraints>
@@ -45,23 +57,32 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y7f-lr-x7p">
-                    <rect key="frame" x="8" y="223" width="135" height="41.5"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D4R-0B-UZ3">
+                    <rect key="frame" x="212" y="277" width="79" height="28.5"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="41.5" id="LkP-oM-jvW"/>
-                        <constraint firstAttribute="width" constant="135" id="tJT-CI-LPR"/>
+                        <constraint firstAttribute="height" constant="28.5" id="XPd-YT-bls"/>
+                        <constraint firstAttribute="width" constant="79" id="uds-R9-AK1"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <state key="normal" title="Random Popular"/>
-                    <connections>
-                        <action selector="buttonPressedNext:" destination="-1" eventType="touchUpInside" id="5cG-Vh-IUw"/>
-                    </connections>
+                    <state key="normal" title="Increment"/>
                 </button>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="template id" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wjL-ec-3nq">
+                    <rect key="frame" x="9" y="277" width="133" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="133" id="FE3-y2-cWV"/>
+                        <constraint firstAttribute="height" constant="30" id="hms-2V-mX9"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="D4R-0B-UZ3" firstAttribute="centerX" secondItem="9te-hI-pid" secondAttribute="centerX" id="BNl-j8-OZ7"/>
                 <constraint firstItem="zBX-RR-EPj" firstAttribute="centerY" secondItem="Y7f-lr-x7p" secondAttribute="centerY" id="Vym-kJ-gmB"/>
+                <constraint firstItem="D4R-0B-UZ3" firstAttribute="centerY" secondItem="wjL-ec-3nq" secondAttribute="centerY" id="XQU-MR-ZXX"/>
+                <constraint firstItem="wjL-ec-3nq" firstAttribute="centerX" secondItem="Y7f-lr-x7p" secondAttribute="centerX" id="XUC-E5-ch1"/>
                 <constraint firstItem="wiH-qw-6HU" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="29" id="ag4-TX-BuY"/>
+                <constraint firstItem="wjL-ec-3nq" firstAttribute="top" secondItem="Y7f-lr-x7p" secondAttribute="bottom" constant="12.5" id="amo-sz-bJX"/>
                 <constraint firstItem="9te-hI-pid" firstAttribute="centerY" secondItem="zBX-RR-EPj" secondAttribute="centerY" id="cF1-jU-wls"/>
                 <constraint firstItem="9te-hI-pid" firstAttribute="leading" secondItem="zBX-RR-EPj" secondAttribute="trailing" constant="39" id="dMq-Uj-28M"/>
                 <constraint firstItem="zBX-RR-EPj" firstAttribute="leading" secondItem="Y7f-lr-x7p" secondAttribute="trailing" constant="8" id="oXE-L8-BJe"/>
