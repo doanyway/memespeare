@@ -18,6 +18,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var buttonNext: UIButton!
     @IBOutlet weak var viewMemeImage: UIImageView!
     
+    @IBOutlet weak var textFieldTemplateId: UITextField!
+    @IBOutlet weak var buttonIncrementTemplateId: UIButton!
+    @IBOutlet weak var buttonCreateMeme: UIButton!
+    
     required init?(coder aDecoder: NSCoder) {
         templateIds = [String]()
         super.init(coder: aDecoder)
@@ -61,20 +65,55 @@ class ViewController: UIViewController {
     @objc @IBAction func buttonPressedNext(sender: UIButton) {
         let templateId = self.templateIds[getRandomTemplateId()]
         self.labelTemplateId.text = templateId
+        
+        captionImage(Int(templateId)!)
+        
+    }
+    
+    @objc @IBAction func buttonPressedIncrement(sender: UIButton) {
+        
+    }
+    
+    @objc @IBAction func buttonPressedCreateMeme(sender: UIButton) {
+        
+        print("pressed create meme")
+        
+        // TODO: only call captionImage if an int
+        
+        
+        /*
+        guard let text = textFieldTemplateId.text where !text.isEmpty else {
+            return
+        }
+        */
+        
+        if let text: String = textFieldTemplateId.text {
+            print("\(text)")
+        }
+        
+        
+        /*
+        if let templateId: Int = Int(self.textFieldTemplateId.text) as? Int {
+            print("got a number: \(templateId)")
+        }
+        */
+    }
+    
+    private func captionImage(templateId: Int) {
         let api = ImgFlipController()
         
-        api.captionImage(Int(templateId)!) { responseObject, error in
+        api.captionImage(templateId) { responseObject, error in
             if let memeImgURL = responseObject! as String? {
                 Alamofire.request(.GET, memeImgURL).responseImage { response in
                     if let image = response.result.value {
                         // update imageView
                         dispatch_async(dispatch_get_main_queue()) { [unowned self] in
                             self.viewMemeImage.image = image
-                            }
                         }
                     }
                 }
             }
+        }
     }
 }
 
