@@ -25,36 +25,48 @@
                         <constraint firstAttribute="height" constant="185" id="j0B-fR-9NG"/>
                     </constraints>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y7f-lr-x7p">
-                    <rect key="frame" x="132" y="237" width="57" height="42"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="42" id="V2l-oP-5Z5"/>
-                        <constraint firstAttribute="width" constant="57" id="qHG-To-tnv"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <state key="normal" title="Next"/>
-                    <connections>
-                        <action selector="buttonPressedNext:" destination="-1" eventType="touchUpInside" id="5cG-Vh-IUw"/>
-                    </connections>
-                </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9te-hI-pid">
-                    <rect key="frame" x="117" y="295" width="87" height="23"/>
+                    <rect key="frame" x="208" y="233" width="87" height="23"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="87" id="DMF-hp-TpD"/>
-                        <constraint firstAttribute="height" constant="23" id="euR-fd-hQQ"/>
+                        <constraint firstAttribute="height" constant="23" id="arW-xh-JA1"/>
+                        <constraint firstAttribute="width" constant="87" id="brj-JL-Lsz"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zBX-RR-EPj">
+                    <rect key="frame" x="151" y="234" width="18" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="18" id="22a-92-xbx"/>
+                        <constraint firstAttribute="height" constant="21" id="Gt6-o9-th3"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y7f-lr-x7p">
+                    <rect key="frame" x="8" y="223" width="135" height="41.5"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="41.5" id="LkP-oM-jvW"/>
+                        <constraint firstAttribute="width" constant="135" id="tJT-CI-LPR"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <state key="normal" title="Random Popular"/>
+                    <connections>
+                        <action selector="buttonPressedNext:" destination="-1" eventType="touchUpInside" id="5cG-Vh-IUw"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="9te-hI-pid" firstAttribute="top" secondItem="Y7f-lr-x7p" secondAttribute="bottom" constant="16" id="1HX-MA-Aj0"/>
-                <constraint firstItem="Y7f-lr-x7p" firstAttribute="top" secondItem="wiH-qw-6HU" secondAttribute="bottom" constant="23" id="79T-RQ-TM5"/>
-                <constraint firstItem="9te-hI-pid" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Z4h-YH-6PE"/>
+                <constraint firstItem="zBX-RR-EPj" firstAttribute="centerY" secondItem="Y7f-lr-x7p" secondAttribute="centerY" id="Vym-kJ-gmB"/>
                 <constraint firstItem="wiH-qw-6HU" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="29" id="ag4-TX-BuY"/>
-                <constraint firstItem="Y7f-lr-x7p" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="oEU-aD-55K"/>
+                <constraint firstItem="9te-hI-pid" firstAttribute="centerY" secondItem="zBX-RR-EPj" secondAttribute="centerY" id="cF1-jU-wls"/>
+                <constraint firstItem="9te-hI-pid" firstAttribute="leading" secondItem="zBX-RR-EPj" secondAttribute="trailing" constant="39" id="dMq-Uj-28M"/>
+                <constraint firstItem="zBX-RR-EPj" firstAttribute="leading" secondItem="Y7f-lr-x7p" secondAttribute="trailing" constant="8" id="oXE-L8-BJe"/>
+                <constraint firstItem="zBX-RR-EPj" firstAttribute="top" secondItem="wiH-qw-6HU" secondAttribute="bottom" constant="20" id="uBf-fm-hKu"/>
+                <constraint firstItem="zBX-RR-EPj" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="v19-NG-8XL"/>
                 <constraint firstItem="wiH-qw-6HU" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="vhI-OT-MZv"/>
             </constraints>
             <point key="canvasLocation" x="396" y="376"/>
