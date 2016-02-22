@@ -94,7 +94,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
         print("when done editing get here too")
         
         if let text: String = textFieldTemplateId.text {
-            print("\(text)")
+            // print("\(text)")
+            if let number: Int = Int(text) {
+                print("\(number)")
+                captionImage(number)
+                
+            }
         }
     }
     
@@ -103,29 +108,26 @@ class ViewController: UIViewController, UITextFieldDelegate {
         print("pressed create meme")
         doSomeTask()
         
-        // TODO: only call captionImage if an int
-        
-        
-        /*
-        guard let text = textFieldTemplateId.text where !text.isEmpty else {
-            return
-        }
-        */
-
-        
-        
-        /*
-        if let templateId: Int = Int(self.textFieldTemplateId.text) as? Int {
-            print("got a number: \(templateId)")
-        }
-        */
     }
     
     private func captionImage(templateId: Int) {
         let api = ImgFlipController()
         
         api.captionImage(templateId) { responseObject, error in
-            if let memeImgURL = responseObject! as String? {
+            if responseObject == nil {
+                let alertController = UIAlertController(title: "Error", message: "Invalid Template ID.", preferredStyle: .Alert)
+                
+                let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
+                    // ...
+                }
+                alertController.addAction(OKAction)
+                
+                self.presentViewController(alertController, animated: true) {
+                    // ...
+                }
+                return
+            }
+            if let memeImgURL = responseObject! as? String {
                 Alamofire.request(.GET, memeImgURL).responseImage { response in
                     if let image = response.result.value {
                         // update imageView
