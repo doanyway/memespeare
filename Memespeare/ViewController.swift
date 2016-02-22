@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 import AlamofireImage
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
 
     var templateIds: [String]
     
@@ -36,6 +36,9 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        textFieldTemplateId.delegate = self
+        
         self.buttonNext.enabled = false
         let api = ImgFlipController()
         
@@ -51,6 +54,19 @@ class ViewController: UIViewController {
                 return
             }
         }
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textFieldTemplateId.resignFirstResponder()
+        return true
+    }
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        doSomeTask()
+    }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
     private func randRange(lower: Int, upper: Int) -> Int {
@@ -74,9 +90,18 @@ class ViewController: UIViewController {
         
     }
     
+    private func doSomeTask() {
+        print("when done editing get here too")
+        
+        if let text: String = textFieldTemplateId.text {
+            print("\(text)")
+        }
+    }
+    
     @objc @IBAction func buttonPressedCreateMeme(sender: UIButton) {
         
         print("pressed create meme")
+        doSomeTask()
         
         // TODO: only call captionImage if an int
         
@@ -86,10 +111,7 @@ class ViewController: UIViewController {
             return
         }
         */
-        
-        if let text: String = textFieldTemplateId.text {
-            print("\(text)")
-        }
+
         
         
         /*
