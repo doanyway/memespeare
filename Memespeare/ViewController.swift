@@ -87,6 +87,16 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     @objc @IBAction func buttonPressedIncrement(sender: UIButton) {
+        print("auto update number in text field")
+        
+        if let text: String = textFieldTemplateId.text {
+            if var number: Int = Int(text) {
+                print("\(number)")
+
+                number += 1
+                textFieldTemplateId.text = String(number)
+            }
+        }
         
     }
     
