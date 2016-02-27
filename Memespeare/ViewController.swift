@@ -74,7 +74,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     private func getRandomTemplateId() -> Int {
-        let upper: Int = self.templateIds.count
+        // fixed bug => upper = count - 1
+        let upper: Int = self.templateIds.count - 1
         return randRange(0, upper: upper)
     }
     
