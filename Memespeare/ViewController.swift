@@ -22,6 +22,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var buttonIncrementTemplateId: UIButton!
     @IBOutlet weak var buttonCreateMeme: UIButton!
     
+
+    
     required init?(coder aDecoder: NSCoder) {
         templateIds = [String]()
         super.init(coder: aDecoder)
@@ -54,7 +56,17 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 return
             }
         }
+        self.setupDisplay()
     }
+    
+    
+    private func setupDisplay() {
+        self.buttonIncrementTemplateId.layer.cornerRadius = 10.0
+        self.buttonIncrementTemplateId.layer.borderWidth = 2
+        self.buttonIncrementTemplateId.layer.borderColor = UIColor(red:0/255.0, green:0/255.0, blue:0/255.0, alpha: 1.0).CGColor
+
+    }
+    
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textFieldTemplateId.resignFirstResponder()
