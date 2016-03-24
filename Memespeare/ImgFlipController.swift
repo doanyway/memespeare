@@ -27,7 +27,7 @@ class ImgFlipController {
                 if let detailsDict = jsonObj as? NSDictionary {
                     
                     if let memeArray = detailsDict["data"]!["memes"] as? NSArray {
-                        for var i: Int = 0; i < memeArray.count; i++ {
+                        for i: Int in 0 ..< memeArray.count {
                             if let oneMemeDict = memeArray[i] as? NSDictionary {
                                 if let imgId = oneMemeDict["id"] as? String {
                                     memeList.append(imgId)
