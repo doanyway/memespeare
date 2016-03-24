@@ -86,8 +86,10 @@ strip_invalid_archs() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-Memespeare/Alamofire.framework"
   install_framework "Pods-Memespeare/AlamofireImage.framework"
+  install_framework "Pods-Memespeare/SwiftyJSON.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-Memespeare/Alamofire.framework"
   install_framework "Pods-Memespeare/AlamofireImage.framework"
+  install_framework "Pods-Memespeare/SwiftyJSON.framework"
 fi

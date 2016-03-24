@@ -8,6 +8,8 @@
 
 import Foundation
 import Alamofire
+import SwiftyJSON
+
 
 class ImgFlipController {
     
@@ -23,6 +25,10 @@ class ImgFlipController {
             
             switch response.result {
             case .Success(let jsonObj):
+                
+                let swifty = JSON(jsonObj)
+                
+                debugPrint(swifty)
                 
                 if let detailsDict = jsonObj as? NSDictionary {
                     
