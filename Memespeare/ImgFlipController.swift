@@ -28,20 +28,13 @@ class ImgFlipController {
                 
                 let swifty = JSON(jsonObj)
                 
-                debugPrint(swifty)
-                
-                if let detailsDict = jsonObj as? NSDictionary {
-                    
-                    if let memeArray = detailsDict["data"]!["memes"] as? NSArray {
-                        for i: Int in 0 ..< memeArray.count {
-                            if let oneMemeDict = memeArray[i] as? NSDictionary {
-                                if let imgId = oneMemeDict["id"] as? String {
-                                    memeList.append(imgId)
-                                }
-                            }
-                        }
-                        completionHandler(memeList, nil)
+                let memeArray = swifty["data"]["memes"]
+                for i in 0 ..< memeArray.count {
+                    let oneMemeDict = memeArray[i]
+                    if let imgId:String = oneMemeDict["id"].string {
+                        memeList.append(imgId)
                     }
+                    completionHandler(memeList, nil)
                 }
                 
             case .Failure(let error):
