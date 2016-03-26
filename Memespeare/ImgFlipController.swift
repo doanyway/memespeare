@@ -62,24 +62,21 @@ class ImgFlipController {
     
             switch response.result {
             case .Success(let jsonObj):
-                if let resultDict = jsonObj as? NSDictionary {
+                
+                let swifty = JSON(jsonObj)
+                
+                if let successInt = swifty["success"].number {
+                    print("\(successInt)")
                     
-                    if let successInt = resultDict["success"] as? Int {
-                        print("\(successInt)")
-                        
-                        if successInt == 1 {
-                            if let memeImgURL = resultDict["data"]!["url"] as? String {
-                                completionHandler(memeImgURL, nil)
-                            }
-                        } else {
-                            print("got an error")
-                            debugPrint(resultDict)
-                            completionHandler(nil, nil)
-                            
-                  
+                    if successInt == 1 {
+                        if let memeImgURL = swifty["data"]["url"].string {
+                            completionHandler(memeImgURL, nil)
                         }
+                    } else {
+                        print("got an error")
+                        debugPrint(swifty)
+                        completionHandler(nil, nil)
                     }
-
                 }
                 
             case .Failure(let error):
