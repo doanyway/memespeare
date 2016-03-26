@@ -26,9 +26,9 @@ class ImgFlipController {
             switch response.result {
             case .Success(let jsonObj):
                 
-                let swifty = JSON(jsonObj)
+                let jsonResult = JSON(jsonObj)
                 
-                let memeArray = swifty["data"]["memes"]
+                let memeArray = jsonResult["data"]["memes"]
                 for i in 0 ..< memeArray.count {
                     let oneMemeDict = memeArray[i]
                     if let imgId:String = oneMemeDict["id"].string {
@@ -63,18 +63,18 @@ class ImgFlipController {
             switch response.result {
             case .Success(let jsonObj):
                 
-                let swifty = JSON(jsonObj)
+                let jsonResult = JSON(jsonObj)
                 
-                if let successInt = swifty["success"].number {
+                if let successInt = jsonResult["success"].number {
                     print("\(successInt)")
                     
                     if successInt == 1 {
-                        if let memeImgURL = swifty["data"]["url"].string {
+                        if let memeImgURL = jsonResult["data"]["url"].string {
                             completionHandler(memeImgURL, nil)
                         }
                     } else {
                         print("got an error")
-                        debugPrint(swifty)
+                        debugPrint(jsonResult)
                         completionHandler(nil, nil)
                     }
                 }
