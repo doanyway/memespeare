@@ -150,7 +150,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 }
                 return
             }
-            if let memeImgURL = responseObject! as? String {
+            if let memeImgURL = responseObject {
                 Alamofire.request(.GET, memeImgURL).responseImage { response in
                     if let image = response.result.value {
                         // update imageView
