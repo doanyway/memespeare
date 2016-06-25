@@ -12,26 +12,16 @@ import AlamofireImage
 
 class ViewController: UIViewController  {
 
-    var templateIds: [String]
+    var templateIds: [String]!
     
     @IBOutlet weak var buttonNext: UIButton!
     @IBOutlet weak var viewMemeImage: UIImageView!
     
-    
-    required init?(coder aDecoder: NSCoder) {
-        templateIds = [String]()
-        super.init(coder: aDecoder)
-    }
-    
-    
-    override init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: NSBundle!) {
-        templateIds = [String]()
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-    }
-
-    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        templateIds = [String]()
         
         self.buttonNext.enabled = false
         let api = ImgFlipController()
