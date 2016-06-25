@@ -19,6 +19,9 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Ch-Fj-MqU">
                                 <rect key="frame" x="34" y="122" width="77" height="30"/>
                                 <state key="normal" title="buttonNext"/>
+                                <connections>
+                                    <action selector="buttonPressedNext:" destination="qfH-I4-lRF" eventType="touchUpInside" id="OGh-ln-Fnw"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f82-rn-2Yc">
                                 <rect key="frame" x="20" y="169" width="240" height="128"/>
@@ -29,12 +32,18 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0p3-MI-XSZ">
-                                <rect key="frame" x="34" y="399" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                                <rect key="frame" x="13" y="399" width="88" height="30"/>
+                                <state key="normal" title="Increment ID"/>
+                                <connections>
+                                    <action selector="buttonPressedIncrement:" destination="qfH-I4-lRF" eventType="touchUpInside" id="hsc-uW-seL"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xrS-iA-A8S">
-                                <rect key="frame" x="34" y="446" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                                <rect key="frame" x="34" y="446" width="68" height="30"/>
+                                <state key="normal" title="Create"/>
+                                <connections>
+                                    <action selector="buttonPressedCreateMeme:" destination="qfH-I4-lRF" eventType="touchUpInside" id="DQS-30-Xv3"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="labelTemplateId" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aHN-0k-tmN">
                                 <rect key="frame" x="34" y="75" width="121" height="21"/>
