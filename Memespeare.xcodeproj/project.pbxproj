@@ -7,23 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A3B4C551D1EE37300170DA7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A3B4C541D1EE37300170DA7 /* Main.storyboard */; };
 		1A8089F71C5AC0B600ED9D7A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8089F61C5AC0B600ED9D7A /* AppDelegate.swift */; };
 		1A8089F91C5AC0B600ED9D7A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8089F81C5AC0B600ED9D7A /* ViewController.swift */; };
 		1A8089FE1C5AC0B700ED9D7A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A8089FD1C5AC0B700ED9D7A /* Assets.xcassets */; };
 		1A808A011C5AC0B700ED9D7A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A8089FF1C5AC0B700ED9D7A /* LaunchScreen.storyboard */; };
-		1A808A091C5AC30900ED9D7A /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A808A081C5AC30900ED9D7A /* ViewController.xib */; };
 		1AB92D831C6968E500F02C37 /* ImgFlipController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB92D821C6968E500F02C37 /* ImgFlipController.swift */; };
 		87BE41CE27CC7A477BE3A453 /* Pods_Memespeare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83F6BFFF5E793FE6745A2274 /* Pods_Memespeare.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1A3B4C541D1EE37300170DA7 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		1A8089F31C5AC0B600ED9D7A /* Memespeare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memespeare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A8089F61C5AC0B600ED9D7A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1A8089F81C5AC0B600ED9D7A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1A8089FD1C5AC0B700ED9D7A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1A808A001C5AC0B700ED9D7A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1A808A021C5AC0B700ED9D7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1A808A081C5AC30900ED9D7A /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
 		1AB92D821C6968E500F02C37 /* ImgFlipController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImgFlipController.swift; sourceTree = "<group>"; };
 		2DC24C25D2C5B0341E50C21C /* Pods-Memespeare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Memespeare.release.xcconfig"; path = "Pods/Target Support Files/Pods-Memespeare/Pods-Memespeare.release.xcconfig"; sourceTree = "<group>"; };
 		83F6BFFF5E793FE6745A2274 /* Pods_Memespeare.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Memespeare.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -68,8 +68,8 @@
 				1A8089FD1C5AC0B700ED9D7A /* Assets.xcassets */,
 				1A8089FF1C5AC0B700ED9D7A /* LaunchScreen.storyboard */,
 				1A808A021C5AC0B700ED9D7A /* Info.plist */,
-				1A808A081C5AC30900ED9D7A /* ViewController.xib */,
 				1AB92D821C6968E500F02C37 /* ImgFlipController.swift */,
+				1A3B4C541D1EE37300170DA7 /* Main.storyboard */,
 			);
 			path = Memespeare;
 			sourceTree = "<group>";
@@ -152,8 +152,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A3B4C551D1EE37300170DA7 /* Main.storyboard in Resources */,
 				1A808A011C5AC0B700ED9D7A /* LaunchScreen.storyboard in Resources */,
-				1A808A091C5AC30900ED9D7A /* ViewController.xib in Resources */,
 				1A8089FE1C5AC0B700ED9D7A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

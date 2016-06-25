@@ -16,12 +16,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 
-        window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        
-        let mainVC = ViewController(nibName: "ViewController", bundle: nil)
-        
-        window?.rootViewController = mainVC
-        window?.makeKeyAndVisible()
+//        window = UIWindow(frame: UIScreen.mainScreen().bounds)
+//        
+//        let mainVC = ViewController(nibName: "ViewController", bundle: nil)
+//        
+//        window?.rootViewController = mainVC
+//        window?.makeKeyAndVisible()
         
         return true
     }
