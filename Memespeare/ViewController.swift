@@ -34,7 +34,9 @@ class ViewController: UIViewController  {
                 print("memeIds = \(memeIds); error = \(error)")
                 self.templateIds = memeIds
                 
-                dispatch_async(dispatch_get_main_queue()) { [unowned self] in
+                dispatch_async(dispatch_get_main_queue()) {
+                    
+                    self.displayRandomMeme()
                     self.buttonNext.enabled = true
                 }
                 return
@@ -54,11 +56,18 @@ class ViewController: UIViewController  {
         return randRange(0, upper: upper)
     }
     
-    
-    @objc @IBAction func buttonPressedNext(sender: UIButton) {
+    private func displayRandomMeme() {
         let templateId = self.templateIds[getRandomTemplateId()]
         
         captionImage(Int(templateId)!)
+    }
+    
+    
+    @IBAction func buttonPressedNext(sender: UIButton) {
+//        let templateId = self.templateIds[getRandomTemplateId()]
+//        
+//        captionImage(Int(templateId)!)
+        displayRandomMeme()
         
     }
     
