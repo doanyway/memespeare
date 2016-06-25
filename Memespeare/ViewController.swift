@@ -14,7 +14,6 @@ class ViewController: UIViewController  {
 
     var templateIds: [String]
     
-//     @IBOutlet weak var labelTemplateId: UILabel!
     @IBOutlet weak var buttonNext: UIButton!
     @IBOutlet weak var viewMemeImage: UIImageView!
     
@@ -43,7 +42,6 @@ class ViewController: UIViewController  {
                 self.templateIds = memeIds
                 
                 dispatch_async(dispatch_get_main_queue()) { [unowned self] in
-                    // self.labelTemplateId.text = self.templateIds[self.getRandomTemplateId()]
                     self.buttonNext.enabled = true
                 }
                 return
@@ -66,7 +64,6 @@ class ViewController: UIViewController  {
     
     @objc @IBAction func buttonPressedNext(sender: UIButton) {
         let templateId = self.templateIds[getRandomTemplateId()]
-        // self.labelTemplateId.text = templateId
         
         captionImage(Int(templateId)!)
         
