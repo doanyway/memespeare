@@ -64,11 +64,7 @@ class ViewController: UIViewController  {
     
     
     @IBAction func buttonPressedNext(sender: UIButton) {
-//        let templateId = self.templateIds[getRandomTemplateId()]
-//        
-//        captionImage(Int(templateId)!)
         displayRandomMeme()
-        
     }
     
 
