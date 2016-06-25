@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 import AlamofireImage
 
-class ViewController: UIViewController, UITextFieldDelegate {
+class ViewController: UIViewController /*, UITextFieldDelegate */ {
 
     var templateIds: [String]
     
@@ -18,7 +18,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var buttonNext: UIButton!
     @IBOutlet weak var viewMemeImage: UIImageView!
     
-    @IBOutlet weak var textFieldTemplateId: UITextField!
     @IBOutlet weak var buttonIncrementTemplateId: UIButton!
     @IBOutlet weak var buttonCreateMeme: UIButton!
     
@@ -39,8 +38,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        textFieldTemplateId.delegate = self
-        
         self.buttonNext.enabled = false
         let api = ImgFlipController()
         
@@ -56,30 +53,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 return
             }
         }
-        self.setupDisplay()
     }
     
-    
-    private func setupDisplay() {
-        self.buttonIncrementTemplateId.layer.cornerRadius = 10.0
-        self.buttonIncrementTemplateId.layer.borderWidth = 2
-        self.buttonIncrementTemplateId.layer.borderColor = UIColor(red:0/255.0, green:0/255.0, blue:0/255.0, alpha: 1.0).CGColor
-
-    }
-    
-    
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        textFieldTemplateId.resignFirstResponder()
-        return true
-    }
-    
-    func textFieldDidEndEditing(textField: UITextField) {
-        doSomeTask()
-    }
-    
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        self.view.endEditing(true)
-    }
     
     private func randRange(lower: Int, upper: Int) -> Int {
         return lower + Int(arc4random_uniform(UInt32(upper - lower + 1)))
@@ -99,40 +74,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
     }
     
-    @objc @IBAction func buttonPressedIncrement(sender: UIButton) {
-        print("auto update number in text field")
-        
-        if let text: String = textFieldTemplateId.text {
-            if var number: Int = Int(text) {
-                print("\(number)")
 
-                number += 1
-                textFieldTemplateId.text = String(number)
-            }
-        }
-        
-    }
-    
-    private func doSomeTask() {
-        print("when done editing get here too")
-        
-        if let text: String = textFieldTemplateId.text {
-            // print("\(text)")
-            if let number: Int = Int(text) {
-                print("\(number)")
-                captionImage(number)
-                
-            }
-        }
-    }
-    
-    @objc @IBAction func buttonPressedCreateMeme(sender: UIButton) {
-        
-        print("pressed create meme")
-        doSomeTask()
-        
-    }
-    
     private func captionImage(templateId: Int) {
         let api = ImgFlipController()
         

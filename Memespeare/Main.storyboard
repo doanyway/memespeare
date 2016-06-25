@@ -16,21 +16,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Ch-Fj-MqU">
-                                <rect key="frame" x="34" y="122" width="77" height="30"/>
-                                <state key="normal" title="buttonNext"/>
-                                <connections>
-                                    <action selector="buttonPressedNext:" destination="qfH-I4-lRF" eventType="touchUpInside" id="OGh-ln-Fnw"/>
-                                </connections>
-                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="labelTemplateId" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aHN-0k-tmN">
+                                <rect key="frame" x="179" y="372" width="121" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f82-rn-2Yc">
-                                <rect key="frame" x="20" y="169" width="240" height="128"/>
+                                <rect key="frame" x="20" y="20" width="280" height="181"/>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mdh-dg-4fX">
-                                <rect key="frame" x="34" y="338" width="97" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0p3-MI-XSZ">
                                 <rect key="frame" x="13" y="399" width="88" height="30"/>
                                 <state key="normal" title="Increment ID"/>
@@ -45,12 +39,13 @@
                                     <action selector="buttonPressedCreateMeme:" destination="qfH-I4-lRF" eventType="touchUpInside" id="DQS-30-Xv3"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="labelTemplateId" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aHN-0k-tmN">
-                                <rect key="frame" x="34" y="75" width="121" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Ch-Fj-MqU">
+                                <rect key="frame" x="54" y="251" width="77" height="30"/>
+                                <state key="normal" title="buttonNext"/>
+                                <connections>
+                                    <action selector="buttonPressedNext:" destination="qfH-I4-lRF" eventType="touchUpInside" id="OGh-ln-Fnw"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -60,7 +55,6 @@
                         <outlet property="buttonIncrementTemplateId" destination="0p3-MI-XSZ" id="Jm5-Df-Pw2"/>
                         <outlet property="buttonNext" destination="9Ch-Fj-MqU" id="zNi-1B-plp"/>
                         <outlet property="labelTemplateId" destination="aHN-0k-tmN" id="mzG-1M-8az"/>
-                        <outlet property="textFieldTemplateId" destination="Mdh-dg-4fX" id="xxi-67-e6O"/>
                         <outlet property="viewMemeImage" destination="f82-rn-2Yc" id="Z0i-Lh-jlr"/>
                     </connections>
                 </viewController>
