@@ -89,7 +89,7 @@ class ViewController: UIViewController  {
                 Alamofire.request(.GET, memeImgURL).responseImage { response in
                     if let image = response.result.value {
                         // update imageView
-                        dispatch_async(dispatch_get_main_queue()) { [unowned self] in
+                        dispatch_async(dispatch_get_main_queue()) { 
                             self.viewMemeImage.image = image
                         }
                     }
