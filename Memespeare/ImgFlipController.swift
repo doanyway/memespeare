@@ -34,8 +34,9 @@ class ImgFlipController {
                     if let imgId:String = oneMemeDict["id"].string {
                         memeList.append(imgId)
                     }
-                    completionHandler(memeList, nil)
+                    
                 }
+                completionHandler(memeList, nil)
                 
             case .Failure(let error):
                 print("request failed with error: \(error)")

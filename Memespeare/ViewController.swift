@@ -26,9 +26,12 @@ class ViewController: UIViewController  {
         self.buttonNext.enabled = false
         let api = ImgFlipController()
         
+        var counter = 0
         api.getMemeIds() { responseObject, error in
             if let memeIds = responseObject as? [String] {
-                // print("memeIds = \(memeIds); error = \(error)")
+                print("\(counter)")
+                counter += 1
+                print("memeIds = \(memeIds); error = \(error)")
                 self.templateIds = memeIds
                 
                 dispatch_async(dispatch_get_main_queue()) { [unowned self] in
