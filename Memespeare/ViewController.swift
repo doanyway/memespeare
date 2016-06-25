@@ -10,18 +10,14 @@ import UIKit
 import Alamofire
 import AlamofireImage
 
-class ViewController: UIViewController /*, UITextFieldDelegate */ {
+class ViewController: UIViewController  {
 
     var templateIds: [String]
     
-    @IBOutlet weak var labelTemplateId: UILabel!
+//     @IBOutlet weak var labelTemplateId: UILabel!
     @IBOutlet weak var buttonNext: UIButton!
     @IBOutlet weak var viewMemeImage: UIImageView!
     
-    @IBOutlet weak var buttonIncrementTemplateId: UIButton!
-    @IBOutlet weak var buttonCreateMeme: UIButton!
-    
-
     
     required init?(coder aDecoder: NSCoder) {
         templateIds = [String]()
@@ -47,7 +43,7 @@ class ViewController: UIViewController /*, UITextFieldDelegate */ {
                 self.templateIds = memeIds
                 
                 dispatch_async(dispatch_get_main_queue()) { [unowned self] in
-                    self.labelTemplateId.text = self.templateIds[self.getRandomTemplateId()]
+                    // self.labelTemplateId.text = self.templateIds[self.getRandomTemplateId()]
                     self.buttonNext.enabled = true
                 }
                 return
@@ -60,15 +56,17 @@ class ViewController: UIViewController /*, UITextFieldDelegate */ {
         return lower + Int(arc4random_uniform(UInt32(upper - lower + 1)))
     }
     
+    
     private func getRandomTemplateId() -> Int {
         // fixed bug => upper = count - 1
         let upper: Int = self.templateIds.count - 1
         return randRange(0, upper: upper)
     }
     
+    
     @objc @IBAction func buttonPressedNext(sender: UIButton) {
         let templateId = self.templateIds[getRandomTemplateId()]
-        self.labelTemplateId.text = templateId
+        // self.labelTemplateId.text = templateId
         
         captionImage(Int(templateId)!)
         
