@@ -16,6 +16,9 @@ class ViewController: UIViewController  {
     
     @IBOutlet weak var buttonNext: UIButton!
     @IBOutlet weak var viewMemeImage: UIImageView!
+    @IBOutlet weak var chooseCast: UILabel!
+    
+    let castPrompt = ["Is this Romeo?", "Is this Juliet?", "Is this the Nurse?"]
     
    
     override func viewDidLoad() {
@@ -38,6 +41,7 @@ class ViewController: UIViewController  {
                     
                     self.displayRandomMeme()
                     self.buttonNext.enabled = true
+                    self.chooseCast.text = self.castPrompt[0]
                 }
                 return
             }
