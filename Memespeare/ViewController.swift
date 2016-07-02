@@ -23,7 +23,7 @@ class ViewController: UIViewController  {
     
     let castPrompt = ["Is this Romeo?", "Is this Juliet?", "Is this the Nurse?"]
     
-    var curentTemplateId: String!
+    var currentTemplateId: String = ""
     
     var currentIndex = 0
     
@@ -49,7 +49,7 @@ class ViewController: UIViewController  {
                 
                 dispatch_async(dispatch_get_main_queue()) {
                     
-                    self.displayRandomMeme()
+                    self.currentTemplateId = self.displayRandomMeme()
                     self.buttonNext.enabled = true
                     self.chooseCast.text = self.castPrompt[self.currentIndex]
                 }
@@ -115,23 +115,31 @@ class ViewController: UIViewController  {
     
     @IBAction func buttonPressedYes(sender: AnyObject) {
         
-        print("pressed yes")
-        print("\(currentIndex)")
+        print("currentIndex: \(currentIndex)")
         
         let cast = uiRealm.objects(Cast.self)
         
         let count = cast[0].members.count
         
-        print("count = \(count)")
-        
         if currentIndex < count {
-            self.chooseCast.text = castPrompt[currentIndex]
-            print("in loop \(currentIndex)")
+
+            try! uiRealm.write({ () -> Void in
+                cast[0].members[currentIndex].templateId = self.currentTemplateId
+            })
+            
             currentIndex += 1
             
-        } else {
-            currentIndex = 0
+            if currentIndex > count - 1 {
+                currentIndex = 0
+            }
+            
+            self.chooseCast.text = castPrompt[currentIndex]
+            self.currentTemplateId = self.displayRandomMeme()
         }
+        
+        // do a query of Cast.members where templateId is empty string
+        //  once count is equal to zero => launch another view controller
+        // let castMissingTemplateId = uiRealm.objects(Cast.self).filter("members == %@", Cast.members)
     }
     
 
