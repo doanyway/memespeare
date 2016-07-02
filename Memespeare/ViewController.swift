@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import AlamofireImage
+import RealmSwift
 
 class ViewController: UIViewController  {
 
@@ -18,11 +19,20 @@ class ViewController: UIViewController  {
     @IBOutlet weak var viewMemeImage: UIImageView!
     @IBOutlet weak var chooseCast: UILabel!
     
+    var cast: Cast!
+    
     let castPrompt = ["Is this Romeo?", "Is this Juliet?", "Is this the Nurse?"]
+    
+    var curentTemplateId: String!
+    
+    var currentIndex = 0
     
    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        populateCast()
+        currentIndex = 0
         
         templateIds = [String]()
         
@@ -41,11 +51,41 @@ class ViewController: UIViewController  {
                     
                     self.displayRandomMeme()
                     self.buttonNext.enabled = true
-                    self.chooseCast.text = self.castPrompt[0]
+                    self.chooseCast.text = self.castPrompt[self.currentIndex]
                 }
                 return
             }
         }
+    }
+    
+    
+    private func populateCast() {
+    
+        let romeo = CastMember()
+        romeo.name = "Romeo"
+        
+        let juliet = CastMember()
+        juliet.name = "Juliet"
+        
+        let nurse = CastMember()
+        nurse.name = "The Nurse"
+        
+        try! uiRealm.write({ () -> Void in
+            uiRealm.add(romeo)
+            uiRealm.add(juliet)
+            uiRealm.add(nurse)
+
+        })
+
+        let cast = Cast()
+        cast.name = "Romeo and Juliet"
+        
+        try! uiRealm.write({ () -> Void in
+            uiRealm.add(cast)
+            cast.members.append(romeo)
+            cast.members.append(juliet)
+            cast.members.append(nurse)
+        })
     }
     
     
@@ -60,15 +100,38 @@ class ViewController: UIViewController  {
         return randRange(0, upper: upper)
     }
     
-    private func displayRandomMeme() {
+    private func displayRandomMeme() -> String {
         let templateId = self.templateIds[getRandomTemplateId()]
         
         captionImage(Int(templateId)!)
+        return templateId
     }
     
     
     @IBAction func buttonPressedNext(sender: UIButton) {
         displayRandomMeme()
+    }
+    
+    
+    @IBAction func buttonPressedYes(sender: AnyObject) {
+        
+        print("pressed yes")
+        print("\(currentIndex)")
+        
+        let cast = uiRealm.objects(Cast.self)
+        
+        let count = cast[0].members.count
+        
+        print("count = \(count)")
+        
+        if currentIndex < count {
+            self.chooseCast.text = castPrompt[currentIndex]
+            print("in loop \(currentIndex)")
+            currentIndex += 1
+            
+        } else {
+            currentIndex = 0
+        }
     }
     
 
