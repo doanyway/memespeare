@@ -115,14 +115,12 @@ class ViewController: UIViewController  {
     
     @IBAction func buttonPressedYes(sender: AnyObject) {
         
-        print("currentIndex: \(currentIndex)")
-        
         let cast = uiRealm.objects(Cast.self)
         
         let count = cast[0].members.count
         
         if currentIndex < count {
-
+            
             try! uiRealm.write({ () -> Void in
                 cast[0].members[currentIndex].templateId = self.currentTemplateId
             })

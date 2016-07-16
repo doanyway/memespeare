@@ -16,12 +16,16 @@ class SwipePlayViewController: UIViewController {
     
     
     @IBOutlet weak var imageView: UIImageView!
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        captionImage(61579, topCaption: "Hey man")
+        let cast = uiRealm.objects(Cast.self)
+        
+        if let romeoID = Int(cast[0].members[0].templateId) {
+            captionImage(romeoID, topCaption: "Hey man")
+        }
         
     }
     
@@ -55,10 +59,6 @@ class SwipePlayViewController: UIViewController {
             }
         }
     }
-
-
     
-
-
 
 }
