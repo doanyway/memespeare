@@ -46,17 +46,17 @@ class ImgFlipController {
     }
     
     
-    func captionImage(templateId: Int, completionHandler: (String?, NSError?) -> ()) {
-        makeCaptionCall(templateId, completionHandler: completionHandler)
+    func captionImage(templateId: Int, topCaption: String, completionHandler: (String?, NSError?) -> ()) {
+        makeCaptionCall(templateId, topCaption: topCaption, completionHandler: completionHandler)
     }
 
-    func makeCaptionCall(templateId: Int, completionHandler: (String?, NSError?) -> ()) {
+    func makeCaptionCall(templateId: Int, topCaption: String, completionHandler: (String?, NSError?) -> ()) {
         
         let parameters: [String: AnyObject] = [
             "template_id": templateId,
             "username": "imgflip_hubot",
             "password": "imgflip_hubot",
-            "text0": "O Romeo, Romeo! wherefore art thou Romeo?",
+            "text0": topCaption,
             "text1": ""]
         
         Alamofire.request(.POST, "https://api.imgflip.com/caption_image", parameters: parameters).responseJSON { response in

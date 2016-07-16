@@ -107,6 +107,9 @@
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="imageView" destination="V3k-96-mzo" id="dey-b1-32L"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kzv-ud-aes" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

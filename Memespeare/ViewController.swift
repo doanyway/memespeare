@@ -149,7 +149,7 @@ class ViewController: UIViewController  {
     private func captionImage(templateId: Int) {
         let api = ImgFlipController()
         
-        api.captionImage(templateId) { responseObject, error in
+        api.captionImage(templateId, topCaption: ".") { responseObject, error in
             if responseObject == nil {
                 let alertController = UIAlertController(title: "Error", message: "Invalid Template ID.", preferredStyle: .Alert)
                 
