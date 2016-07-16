@@ -92,18 +92,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="V3k-96-mzo">
-                                <rect key="frame" x="16" y="20" width="288" height="234"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="234" id="kqG-V8-53l"/>
-                                </constraints>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="V3k-96-mzo">
+                                <rect key="frame" x="-4" y="20" width="328" height="548"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="V3k-96-mzo" firstAttribute="trailing" secondItem="JDK-QB-xfe" secondAttribute="trailingMargin" id="3wz-m1-DJV"/>
-                            <constraint firstItem="V3k-96-mzo" firstAttribute="top" secondItem="gjE-Lg-rHs" secondAttribute="bottom" id="Rd8-cq-a8N"/>
-                            <constraint firstItem="V3k-96-mzo" firstAttribute="leading" secondItem="JDK-QB-xfe" secondAttribute="leadingMargin" id="lxv-5r-dHI"/>
+                            <constraint firstItem="V3k-96-mzo" firstAttribute="leading" secondItem="JDK-QB-xfe" secondAttribute="leadingMargin" constant="-20" id="85X-16-9SC"/>
+                            <constraint firstItem="V3k-96-mzo" firstAttribute="top" secondItem="gjE-Lg-rHs" secondAttribute="bottom" id="HXC-Us-MLH"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="V3k-96-mzo" secondAttribute="trailing" constant="-20" id="igj-MY-3Nh"/>
+                            <constraint firstItem="wXN-xj-Xwe" firstAttribute="top" secondItem="V3k-96-mzo" secondAttribute="bottom" id="ka2-6j-BEK"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>

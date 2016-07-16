@@ -23,10 +23,16 @@ class SwipePlayViewController: UIViewController {
         
         let cast = uiRealm.objects(Cast.self)
         
+        let aLine = uiRealm.objects(PlayLine.self)
+        let zeText = aLine[0].actualText
+        
         if let romeoID = Int(cast[0].members[0].templateId) {
-            captionImage(romeoID, topCaption: "Hey man")
+            if !zeText.isEmpty {
+                captionImage(romeoID, topCaption: zeText)
+            }
         }
         
+        print("got past call to realm")
     }
     
     
