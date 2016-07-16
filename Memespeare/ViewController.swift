@@ -128,18 +128,21 @@ class ViewController: UIViewController  {
             })
             
             currentIndex += 1
-            
-            if currentIndex > count - 1 {
-                currentIndex = 0
+
+            if currentIndex < count {
+                self.chooseCast.text = castPrompt[currentIndex]
+                self.currentTemplateId = self.displayRandomMeme()
+            } else {
+                switchScreen()
             }
-            
-            self.chooseCast.text = castPrompt[currentIndex]
-            self.currentTemplateId = self.displayRandomMeme()
         }
-        
-        // do a query of Cast.members where templateId is empty string
-        //  once count is equal to zero => launch another view controller
-        // let castMissingTemplateId = uiRealm.objects(Cast.self).filter("members == %@", Cast.members)
+    }
+    
+    
+    func switchScreen() {
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+        let vc : SwipePlayViewController = mainStoryboard.instantiateViewControllerWithIdentifier("SwipePlay") as! SwipePlayViewController
+        self.presentViewController(vc, animated: true, completion: nil)
     }
     
 

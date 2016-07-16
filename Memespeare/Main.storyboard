@@ -76,5 +76,24 @@
             </objects>
             <point key="canvasLocation" x="400" y="335"/>
         </scene>
+        <!--Swipe Play View Controller-->
+        <scene sceneID="HHU-gx-MS5">
+            <objects>
+                <viewController storyboardIdentifier="SwipePlay" id="cD5-nU-mkp" customClass="SwipePlayViewController" customModule="Memespeare" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gjE-Lg-rHs"/>
+                        <viewControllerLayoutGuide type="bottom" id="wXN-xj-Xwe"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="JDK-QB-xfe">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kzv-ud-aes" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="813" y="335"/>
+        </scene>
     </scenes>
 </document>
