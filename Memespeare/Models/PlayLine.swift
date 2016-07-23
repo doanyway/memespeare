@@ -15,5 +15,6 @@ class PlayLine: Object {
     dynamic var scene = 0
     dynamic var line = 0
     dynamic var actualText = ""
+    dynamic var castMember: CastMember!
     
 }

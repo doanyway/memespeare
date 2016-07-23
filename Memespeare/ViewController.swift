@@ -27,6 +27,8 @@ class ViewController: UIViewController  {
     
     var currentIndex = 0
     
+    let possibleRomeos = [101470, 563423, 245898]
+    
    
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,7 +52,8 @@ class ViewController: UIViewController  {
                 
                 dispatch_async(dispatch_get_main_queue()) {
                     
-                    self.currentTemplateId = self.displayRandomMeme()
+                    // self.currentTemplateId = self.displayRandomMeme()
+                    self.displaySpecificMeme(self.possibleRomeos[0])
                     self.buttonNext.enabled = true
                     self.chooseCast.text = self.castPrompt[self.currentIndex]
                 }
@@ -109,8 +112,21 @@ class ViewController: UIViewController  {
     }
     
     
+    private func displaySpecificMeme(templateId: Int) {
+        // let templateId = self.templateIds[getRandomTemplateId()]
+        
+        captionImage(templateId)
+        // return templateId
+    }
+    
+    
     @IBAction func buttonPressedNext(sender: UIButton) {
-        displayRandomMeme()
+        
+        //displayRandomMeme()
+        if currentIndex == 0 {
+            displaySpecificMeme(possibleRomeos[Int(arc4random_uniform(UInt32(possibleRomeos.count)))])
+        }
+        
     }
     
     
