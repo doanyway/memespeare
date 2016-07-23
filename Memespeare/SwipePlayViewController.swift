@@ -30,6 +30,8 @@ class SwipePlayViewController: UIViewController {
             if !zeText.isEmpty {
                 captionImage(romeoID, topCaption: zeText)
             }
+        } else {
+            print("did not get romeoId")
         }
         
         print("got past call to realm")

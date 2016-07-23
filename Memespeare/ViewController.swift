@@ -28,6 +28,8 @@ class ViewController: UIViewController  {
     var currentIndex = 0
     
     let possibleRomeos = [101470, 563423, 245898]
+    let possibleJuliets = [61539, 14230520, 28251713]
+    let possibleNurses = [100955, 8072285, 405658]
     
    
     override func viewDidLoad() {
@@ -52,7 +54,7 @@ class ViewController: UIViewController  {
                 
                 dispatch_async(dispatch_get_main_queue()) {
                     
-                    // self.currentTemplateId = self.displayRandomMeme()
+                    self.currentTemplateId = "\(self.possibleRomeos[0])"
                     self.displaySpecificMeme(self.possibleRomeos[0])
                     self.buttonNext.enabled = true
                     self.chooseCast.text = self.castPrompt[self.currentIndex]
@@ -112,21 +114,32 @@ class ViewController: UIViewController  {
     }
     
     
-    private func displaySpecificMeme(templateId: Int) {
-        // let templateId = self.templateIds[getRandomTemplateId()]
+    private func displaySpecificMeme(templateId: Int) -> Int {
         
         captionImage(templateId)
-        // return templateId
+        return templateId
+    }
+
+    
+    private func displayCast() {
+        
+        var actualId: Int = 61533
+        
+        if currentIndex == 0 {
+            actualId = displaySpecificMeme(possibleRomeos[Int(arc4random_uniform(UInt32(possibleRomeos.count)))])
+        } else if currentIndex == 1 {
+            actualId = displaySpecificMeme(possibleJuliets[Int(arc4random_uniform(UInt32(possibleJuliets.count)))])
+        } else if currentIndex == 2 {
+            actualId = displaySpecificMeme(possibleNurses[Int(arc4random_uniform(UInt32(possibleNurses.count)))])
+        }
+        
+        self.currentTemplateId = "\(actualId)"
+        print(self.currentTemplateId)
     }
     
     
     @IBAction func buttonPressedNext(sender: UIButton) {
-        
-        //displayRandomMeme()
-        if currentIndex == 0 {
-            displaySpecificMeme(possibleRomeos[Int(arc4random_uniform(UInt32(possibleRomeos.count)))])
-        }
-        
+        displayCast()
     }
     
     
@@ -139,6 +152,7 @@ class ViewController: UIViewController  {
         if currentIndex < count {
             
             try! uiRealm.write({ () -> Void in
+                // print("in realm write: " + self.currentTemplateId)
                 cast[0].members[currentIndex].templateId = self.currentTemplateId
             })
             
@@ -146,7 +160,7 @@ class ViewController: UIViewController  {
 
             if currentIndex < count {
                 self.chooseCast.text = castPrompt[currentIndex]
-                self.currentTemplateId = self.displayRandomMeme()
+                self.displayCast()
             } else {
                 switchScreen()
             }
