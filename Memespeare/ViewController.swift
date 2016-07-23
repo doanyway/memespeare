@@ -27,8 +27,8 @@ class ViewController: UIViewController  {
     
     var currentIndex = 0
     
-    let possibleRomeos = [101470, 563423, 245898]
-    let possibleJuliets = [61539, 14230520, 28251713]
+    let possibleRomeos = [101470, 563423, 245898, 100947, 40945639, 101716]
+    let possibleJuliets = [61539, 14230520, 28251713, 97984, 61556]
     let possibleNurses = [100955, 8072285, 405658]
     
    
