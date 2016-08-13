@@ -64,6 +64,17 @@ class ViewController: UIViewController  {
         }
     }
     
+
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return [.Portrait]
+    }
+    
+    
+    
+    override func shouldAutorotate() -> Bool {
+        return false
+    }
+    
     
     private func populateCast() {
     
