@@ -41,7 +41,9 @@ class SwipePlayViewController: UIViewController {
         let api = ImgFlipController()
         
         api.captionImage(templateId, topCaption: topCaption) { responseObject, error in
-            if responseObject == nil {
+            
+            guard let memeImgURL = responseObject where error == nil else {
+                
                 let alertController = UIAlertController(title: "Error", message: "Invalid Template ID.", preferredStyle: .Alert)
                 
                 let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
@@ -49,18 +51,22 @@ class SwipePlayViewController: UIViewController {
                 }
                 alertController.addAction(OKAction)
                 
-                self.presentViewController(alertController, animated: true) {
-                    // ...
+                dispatch_async(dispatch_get_main_queue())  {
+                    self.presentViewController(alertController, animated: true) {
+                    }
                 }
                 return
             }
-
-            if let memeImgURL = responseObject {
-                self.imageView.sd_setImageWithURL(NSURL(string: memeImgURL), placeholderImage: UIImage.init(named: "download_icon"))
+            
+            self.imageView.contentMode = .Center
+            self.imageView.sd_setImageWithURL(NSURL(string: memeImgURL), placeholderImage: UIImage.init(named: "download_icon")) { _,_,_,_ in
+                dispatch_async(dispatch_get_main_queue())  {
+                    self.imageView.contentMode = .ScaleAspectFit
+                }
             }
             
         }
     }
     
-
+    
 }
