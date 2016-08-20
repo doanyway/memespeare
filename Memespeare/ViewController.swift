@@ -10,6 +10,7 @@ import UIKit
 import Alamofire
 import AlamofireImage
 import RealmSwift
+import SDWebImage
 
 class ViewController: UIViewController  {
 

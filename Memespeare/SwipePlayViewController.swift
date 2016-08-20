@@ -55,16 +55,11 @@ class SwipePlayViewController: UIViewController {
                 }
                 return
             }
+
             if let memeImgURL = responseObject {
-                Alamofire.request(.GET, memeImgURL).responseImage { response in
-                    if let image = response.result.value {
-                        // update imageView
-                        dispatch_async(dispatch_get_main_queue()) {
-                            self.imageView.image = image
-                        }
-                    }
-                }
+                self.imageView.sd_setImageWithURL(NSURL(string: memeImgURL), placeholderImage: UIImage.init(named: "download_icon"))
             }
+            
         }
     }
     
