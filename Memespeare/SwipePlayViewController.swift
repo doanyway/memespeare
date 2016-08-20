@@ -16,9 +16,18 @@ class SwipePlayViewController: UIViewController {
     
     @IBOutlet weak var imageView: UIImageView!
     
+    var imageURLs = [NSURL?]()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        imageView.contentMode = .Center
+        imageView.sd_setImageWithURL(imageURLs.last ?? NSURL(), placeholderImage: UIImage.init(named: "download_icon")) { _,_,_,_ in
+            dispatch_async(dispatch_get_main_queue())  {
+                self.imageView.contentMode = .ScaleAspectFit
+            }
+        }
         
         let cast = uiRealm.objects(Cast.self)
         
@@ -27,7 +36,8 @@ class SwipePlayViewController: UIViewController {
         
         if let romeoID = Int(cast[0].members[0].templateId) {
             if !zeText.isEmpty {
-                captionImage(romeoID, topCaption: zeText)
+                // captionImage(romeoID, topCaption: zeText)
+                
             }
         } else {
             print("did not get romeoId")

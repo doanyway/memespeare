@@ -19,6 +19,7 @@ class ViewController: UIViewController  {
     @IBOutlet weak var viewMemeImage: UIImageView!
     @IBOutlet weak var chooseCast: UILabel!
     
+    // TODO: make private
     var cast: Cast!
     
     let castPrompt = ["Is this Romeo?", "Is this Juliet?", "Is this the Nurse?"]
@@ -26,6 +27,10 @@ class ViewController: UIViewController  {
     var currentTemplateId: String = ""
     
     var currentIndex = 0
+    
+    var tempURL = [NSURL?]()
+    
+
     
     let possibleRomeos = [101470, 563423, 245898, 100947, 40945639, 101716]
     let possibleJuliets = [61539, 14230520, 28251713, 97984, 61556]
@@ -64,6 +69,8 @@ class ViewController: UIViewController  {
                 return
             }
         }
+        
+
     }
     
     
@@ -187,16 +194,23 @@ class ViewController: UIViewController  {
     
     
     func switchScreen() {
-        let mainStoryboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
-        let vc : SwipePlayViewController = mainStoryboard.instantiateViewControllerWithIdentifier("SwipePlay") as! SwipePlayViewController
-        self.presentViewController(vc, animated: true, completion: nil)
+        performSegueWithIdentifier(String(SwipePlayViewController), sender: self)
+//        let mainStoryboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+//        let vc : SwipePlayViewController = mainStoryboard.instantiateViewControllerWithIdentifier("SwipePlay") as! SwipePlayViewController
+//        self.presentViewController(vc, animated: true, completion: nil)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let destination = segue.destinationViewController as? SwipePlayViewController {
+            destination.imageURLs = tempURL
+        }
     }
     
     
     private func captionImage(templateId: Int) {
         let api = ImgFlipController()
         
-        api.captionImage(templateId, topCaption: ".") { responseObject, error in
+        api.captionImage(templateId, topCaption: " ") { responseObject, error in
             
             guard let memeImgURL = responseObject where error == nil else {
                 
@@ -213,6 +227,7 @@ class ViewController: UIViewController  {
                 }
                 return
             }
+            self.tempURL.append(NSURL(string: memeImgURL))
             
             self.viewMemeImage.contentMode = .Center
             self.viewMemeImage.sd_setImageWithURL(NSURL(string: memeImgURL), placeholderImage: UIImage.init(named: "download_icon")) { _,_,_,_ in

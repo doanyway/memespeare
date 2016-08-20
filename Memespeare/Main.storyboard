@@ -93,6 +93,7 @@
                         <outlet property="buttonNext" destination="9Ch-Fj-MqU" id="zNi-1B-plp"/>
                         <outlet property="chooseCast" destination="1zn-Am-lhS" id="QIU-OX-ejJ"/>
                         <outlet property="viewMemeImage" destination="f82-rn-2Yc" id="Z0i-Lh-jlr"/>
+                        <segue destination="cD5-nU-mkp" kind="show" identifier="SwipePlayViewController" id="0ac-QA-ss7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3bj-oe-ZQ0" userLabel="First Responder" sceneMemberID="firstResponder"/>
