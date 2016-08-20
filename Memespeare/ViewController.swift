@@ -12,7 +12,7 @@ import RealmSwift
 import SDWebImage
 
 class ViewController: UIViewController  {
-
+    
     var templateIds: [String]!
     
     @IBOutlet weak var buttonNext: UIButton!
@@ -31,9 +31,11 @@ class ViewController: UIViewController  {
     let possibleJuliets = [61539, 14230520, 28251713, 97984, 61556]
     let possibleNurses = [100955, 8072285, 405658]
     
-   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        UIDevice.currentDevice().setValue(UIInterfaceOrientation.Portrait.rawValue, forKey: "orientation")
         
         
         populateCast()
@@ -64,7 +66,12 @@ class ViewController: UIViewController  {
         }
     }
     
-
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        UIDevice.currentDevice().setValue(UIInterfaceOrientation.Portrait.rawValue, forKey: "orientation")
+    }
+    
     override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
         return [.Portrait]
     }
@@ -77,7 +84,7 @@ class ViewController: UIViewController  {
     
     
     private func populateCast() {
-    
+        
         let romeo = CastMember()
         romeo.name = "Romeo"
         
@@ -91,9 +98,9 @@ class ViewController: UIViewController  {
             uiRealm.add(romeo)
             uiRealm.add(juliet)
             uiRealm.add(nurse)
-
+            
         })
-
+        
         let cast = Cast()
         cast.name = "Romeo and Juliet"
         
@@ -130,7 +137,7 @@ class ViewController: UIViewController  {
         captionImage(templateId)
         return templateId
     }
-
+    
     
     private func displayCast() {
         
@@ -168,7 +175,7 @@ class ViewController: UIViewController  {
             })
             
             currentIndex += 1
-
+            
             if currentIndex < count {
                 self.chooseCast.text = castPrompt[currentIndex]
                 self.displayCast()
@@ -185,12 +192,14 @@ class ViewController: UIViewController  {
         self.presentViewController(vc, animated: true, completion: nil)
     }
     
-
+    
     private func captionImage(templateId: Int) {
         let api = ImgFlipController()
         
         api.captionImage(templateId, topCaption: ".") { responseObject, error in
-            if responseObject == nil {
+            
+            guard let memeImgURL = responseObject where error == nil else {
+                
                 let alertController = UIAlertController(title: "Error", message: "Invalid Template ID.", preferredStyle: .Alert)
                 
                 let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
@@ -198,14 +207,18 @@ class ViewController: UIViewController  {
                 }
                 alertController.addAction(OKAction)
                 
-                self.presentViewController(alertController, animated: true) {
-                    // ...
+                dispatch_async(dispatch_get_main_queue())  {
+                    self.presentViewController(alertController, animated: true) {
+                }
                 }
                 return
             }
-
-            if let memeImgURL = responseObject {
-                self.viewMemeImage.sd_setImageWithURL(NSURL(string: memeImgURL), placeholderImage: UIImage.init(named: "download_icon"))
+            
+            self.viewMemeImage.contentMode = .Center
+            self.viewMemeImage.sd_setImageWithURL(NSURL(string: memeImgURL), placeholderImage: UIImage.init(named: "download_icon")) { _,_,_,_ in
+                dispatch_async(dispatch_get_main_queue())  {
+                    self.viewMemeImage.contentMode = .ScaleAspectFill
+                }
             }
         }
     }
