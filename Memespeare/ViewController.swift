@@ -8,7 +8,6 @@
 
 import UIKit
 import Alamofire
-import AlamofireImage
 import RealmSwift
 import SDWebImage
 
@@ -204,15 +203,9 @@ class ViewController: UIViewController  {
                 }
                 return
             }
+
             if let memeImgURL = responseObject {
-                Alamofire.request(.GET, memeImgURL).responseImage { response in
-                    if let image = response.result.value {
-                        // update imageView
-                        dispatch_async(dispatch_get_main_queue()) { 
-                            self.viewMemeImage.image = image
-                        }
-                    }
-                }
+                self.viewMemeImage.sd_setImageWithURL(NSURL(string: memeImgURL), placeholderImage: UIImage.init(named: "download_icon"))
             }
         }
     }
