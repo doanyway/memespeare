@@ -113,21 +113,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="V3k-96-mzo">
-                                <rect key="frame" x="-4" y="20" width="328" height="548"/>
-                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="bG3-NV-hI1">
+                                <rect key="frame" x="16" y="64" width="288" height="504"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yo Romeo" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L4Y-SF-zsI">
+                                        <rect key="frame" x="0.0" y="0.0" width="288" height="42"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V3k-96-mzo">
+                                        <rect key="frame" x="0.0" y="44" width="288" height="461"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </imageView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="V3k-96-mzo" firstAttribute="leading" secondItem="JDK-QB-xfe" secondAttribute="leadingMargin" constant="-20" id="85X-16-9SC"/>
-                            <constraint firstItem="V3k-96-mzo" firstAttribute="top" secondItem="gjE-Lg-rHs" secondAttribute="bottom" id="HXC-Us-MLH"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="V3k-96-mzo" secondAttribute="trailing" constant="-20" id="igj-MY-3Nh"/>
-                            <constraint firstItem="wXN-xj-Xwe" firstAttribute="top" secondItem="V3k-96-mzo" secondAttribute="bottom" id="ka2-6j-BEK"/>
+                            <constraint firstItem="bG3-NV-hI1" firstAttribute="leading" secondItem="JDK-QB-xfe" secondAttribute="leadingMargin" id="KiZ-pC-5pC"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="bG3-NV-hI1" secondAttribute="trailing" id="TqI-td-PF6"/>
+                            <constraint firstItem="bG3-NV-hI1" firstAttribute="top" secondItem="gjE-Lg-rHs" secondAttribute="bottom" id="cJp-YE-Yxa"/>
+                            <constraint firstItem="wXN-xj-Xwe" firstAttribute="top" secondItem="bG3-NV-hI1" secondAttribute="bottom" id="iCQ-HA-Ika"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="imageView" destination="V3k-96-mzo" id="dey-b1-32L"/>
+                        <outlet property="labelActorsLines" destination="L4Y-SF-zsI" id="uqj-gb-1YG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kzv-ud-aes" userLabel="First Responder" sceneMemberID="firstResponder"/>

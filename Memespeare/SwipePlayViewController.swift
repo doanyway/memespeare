@@ -15,6 +15,7 @@ class SwipePlayViewController: UIViewController {
     
     
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var labelActorsLines: UILabel!
     
     var imageURLs = [NSURL?]()
     
@@ -23,7 +24,7 @@ class SwipePlayViewController: UIViewController {
         super.viewDidLoad()
         
         imageView.contentMode = .Center
-        imageView.sd_setImageWithURL(imageURLs.last ?? NSURL(), placeholderImage: UIImage.init(named: "download_icon")) { _,_,_,_ in
+        imageView.sd_setImageWithURL(imageURLs.first ?? NSURL(), placeholderImage: UIImage.init(named: "download_icon")) { _,_,_,_ in
             dispatch_async(dispatch_get_main_queue())  {
                 self.imageView.contentMode = .ScaleAspectFit
             }
@@ -36,8 +37,7 @@ class SwipePlayViewController: UIViewController {
         
         if let romeoID = Int(cast[0].members[0].templateId) {
             if !zeText.isEmpty {
-                // captionImage(romeoID, topCaption: zeText)
-                
+                labelActorsLines.text = zeText
             }
         } else {
             print("did not get romeoId")
@@ -46,37 +46,6 @@ class SwipePlayViewController: UIViewController {
         print("got past call to realm")
     }
     
-    
-    private func captionImage(templateId: Int, topCaption: String) {
-        let api = ImgFlipController()
-        
-        api.captionImage(templateId, topCaption: topCaption) { responseObject, error in
-            
-            guard let memeImgURL = responseObject where error == nil else {
-                
-                let alertController = UIAlertController(title: "Error", message: "Invalid Template ID.", preferredStyle: .Alert)
-                
-                let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
-                    // ...
-                }
-                alertController.addAction(OKAction)
-                
-                dispatch_async(dispatch_get_main_queue())  {
-                    self.presentViewController(alertController, animated: true) {
-                    }
-                }
-                return
-            }
-            
-            self.imageView.contentMode = .Center
-            self.imageView.sd_setImageWithURL(NSURL(string: memeImgURL), placeholderImage: UIImage.init(named: "download_icon")) { _,_,_,_ in
-                dispatch_async(dispatch_get_main_queue())  {
-                    self.imageView.contentMode = .ScaleAspectFit
-                }
-            }
-            
-        }
-    }
     
     
 }
