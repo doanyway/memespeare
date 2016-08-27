@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="qfH-I4-lRF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="no1-du-xWa">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="01n-Dr-rrB">
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="01n-Dr-rrB">
                                 <rect key="frame" x="20" y="28" width="280" height="340"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="f82-rn-2Yc">
@@ -88,6 +88,7 @@
                             <constraint firstItem="01n-Dr-rrB" firstAttribute="width" secondItem="1S1-wg-pBi" secondAttribute="width" constant="-40" id="pqh-Xf-X1R"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="Tnk-nt-5ZH"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="buttonNext" destination="9Ch-Fj-MqU" id="zNi-1B-plp"/>
@@ -98,7 +99,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3bj-oe-ZQ0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="400" y="335"/>
+            <point key="canvasLocation" x="1212" y="335"/>
         </scene>
         <!--Swipe Play View Controller-->
         <scene sceneID="HHU-gx-MS5">
@@ -131,7 +132,26 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kzv-ud-aes" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="813" y="335"/>
+            <point key="canvasLocation" x="1625" y="335"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="9de-z0-nEv">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="no1-du-xWa" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="T4N-2X-Sgw">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="qfH-I4-lRF" kind="relationship" relationship="rootViewController" id="k9v-JA-sfx"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lUk-ZO-n5A" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="740" y="335"/>
         </scene>
     </scenes>
 </document>

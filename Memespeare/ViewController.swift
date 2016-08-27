@@ -61,22 +61,31 @@ class ViewController: UIViewController  {
                 
                 dispatch_async(dispatch_get_main_queue()) {
                     
-                    self.currentTemplateId = "\(self.possibleRomeos[0])"
-                    self.displaySpecificMeme(self.possibleRomeos[0])
-                    self.buttonNext.enabled = true
-                    self.chooseCast.text = self.castPrompt[self.currentIndex]
+                    self.chooseCastMembers()
                 }
                 return
             }
         }
-        
+    }
 
+    
+    private func chooseCastMembers() {
+        
+        currentTemplateId = "\(self.possibleRomeos[0])"
+        displaySpecificMeme(self.possibleRomeos[0])
+        buttonNext.enabled = true
+        chooseCast.text = self.castPrompt[self.currentIndex]
     }
     
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         UIDevice.currentDevice().setValue(UIInterfaceOrientation.Portrait.rawValue, forKey: "orientation")
+        if templateIds.count > 0 {
+            tempURL.removeAll()
+            currentIndex = 0
+            chooseCastMembers()
+        }
     }
     
     override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
