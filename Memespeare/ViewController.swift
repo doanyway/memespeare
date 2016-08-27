@@ -32,7 +32,7 @@ class ViewController: UIViewController  {
     
 
     
-    let possibleRomeos = [101470, 563423, 245898, 100947, 40945639, 101716]
+    let possibleRomeos = [101470, 563423, 245898, 100947, 40945639, 101716, 14371066, 40945639, 124212]
     let possibleJuliets = [61539, 14230520, 28251713, 97984, 61556]
     let possibleNurses = [100955, 8072285, 405658]
     

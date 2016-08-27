@@ -25,7 +25,7 @@ class ImgFlipController {
             
             switch response.result {
             case .Success(let jsonObj):
-                
+                debugPrint(jsonObj)
                 let jsonResult = JSON(jsonObj)
                 
                 let memeArray = jsonResult["data"]["memes"]
