@@ -5,7 +5,6 @@ use_frameworks!
 
 target 'Memespeare' do
   pod 'Alamofire', '~> 3.2'
-  pod 'AlamofireImage', '~> 2.0'
   pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
   pod 'RealmSwift'
   pod 'SDWebImage', '~>3.8'
