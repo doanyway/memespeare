@@ -13,18 +13,18 @@ import SwiftyJSON
 
 class ImgFlipController {
     
-    func getMemeIds(completionHandler: (NSArray?, NSError?) -> ()) {
+    func getMemeIds(_ completionHandler: @escaping ([String]?, Error?) -> ()) {
         makeCall(completionHandler)
     }
     
     
-    func makeCall(completionHandler: (NSArray?, NSError?) -> ()) {
-        Alamofire.request(.GET, "https://api.imgflip.com/get_memes").responseJSON { response in
+    func makeCall(_ completionHandler: @escaping ([String]?, Error?) -> ()) {
+        Alamofire.request("https://api.imgflip.com/get_memes", method: .get).responseJSON { response in
             
             var memeList: [String] = []
             
             switch response.result {
-            case .Success(let jsonObj):
+            case .success(let jsonObj):
                 // debugPrint(jsonObj)
                 let jsonResult = JSON(jsonObj)
                 
@@ -38,7 +38,7 @@ class ImgFlipController {
                 }
                 completionHandler(memeList, nil)
                 
-            case .Failure(let error):
+            case .failure(let error):
                 print("request failed with error: \(error)")
                 completionHandler(nil, error)
             }
@@ -46,23 +46,23 @@ class ImgFlipController {
     }
     
     
-    func captionImage(templateId: Int, topCaption: String, completionHandler: (String?, NSError?) -> ()) {
+    func captionImage(_ templateId: Int, topCaption: String, completionHandler: @escaping (String?, NSError?) -> ()) {
         makeCaptionCall(templateId, topCaption: topCaption, completionHandler: completionHandler)
     }
 
-    func makeCaptionCall(templateId: Int, topCaption: String, completionHandler: (String?, NSError?) -> ()) {
+    func makeCaptionCall(_ templateId: Int, topCaption: String, completionHandler: @escaping (String?, NSError?) -> ()) {
         
         let parameters: [String: AnyObject] = [
-            "template_id": templateId,
-            "username": "imgflip_hubot",
-            "password": "imgflip_hubot",
-            "text0": topCaption,
-            "text1": ""]
+            "template_id": templateId as AnyObject,
+            "username": "imgflip_hubot" as AnyObject,
+            "password": "imgflip_hubot" as AnyObject,
+            "text0": topCaption as AnyObject,
+            "text1": "" as AnyObject]
         
-        Alamofire.request(.POST, "https://api.imgflip.com/caption_image", parameters: parameters).responseJSON { response in
+        Alamofire.request("https://api.imgflip.com/caption_image", method: .post, parameters: parameters).responseJSON { response in
     
             switch response.result {
-            case .Success(let jsonObj):
+            case .success(let jsonObj):
                 
                 let jsonResult = JSON(jsonObj)
                 
@@ -80,7 +80,7 @@ class ImgFlipController {
                     }
                 }
                 
-            case .Failure(let error):
+            case .failure(let error):
                 print("request failed with error: \(error)")
             }
         }

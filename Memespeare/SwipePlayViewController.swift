@@ -17,16 +17,18 @@ class SwipePlayViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var labelActorsLines: UILabel!
     
-    var imageURLs = [NSURL?]()
+    var imageURLs = [URL?]()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        imageView.contentMode = .Center
-        imageView.sd_setImageWithURL(imageURLs.first ?? NSURL(), placeholderImage: UIImage.init(named: "download_icon")) { _,_,_,_ in
-            dispatch_async(dispatch_get_main_queue())  {
-                self.imageView.contentMode = .ScaleAspectFit
+        imageView.contentMode = .center
+        imageView.image = UIImage.init(named: "download_icon")
+        
+        imageView.sd_setImage(with: imageURLs.first ?? URL(fileURLWithPath: "")) { _,_,_,_ in
+            DispatchQueue.main.async  {
+                self.imageView.contentMode = .scaleAspectFit
             }
         }
         

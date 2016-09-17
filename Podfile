@@ -4,9 +4,8 @@ platform :ios, '9.0'
 use_frameworks!
 
 target 'Memespeare' do
-  pod 'Alamofire', '~> 3.2'
-  pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
+  pod 'Alamofire', '~> 4.0'
   pod 'RealmSwift'
   pod 'SDWebImage', '~>3.8'
+  pod 'SwiftyJSON', :git => 'https://github.com/BaiduHiDeviOS/SwiftyJSON.git', branch: 'swift3'
 end
-

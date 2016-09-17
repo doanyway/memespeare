@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="no1-du-xWa">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="no1-du-xWa">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -15,34 +16,29 @@
                         <viewControllerLayoutGuide type="bottom" id="AOS-ea-ORD"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="1S1-wg-pBi">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="01n-Dr-rrB">
-                                <rect key="frame" x="20" y="28" width="280" height="340"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="01n-Dr-rrB">
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="f82-rn-2Yc">
-                                        <rect key="frame" x="0.0" y="0.0" width="280" height="280"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="f82-rn-2Yc" secondAttribute="height" multiplier="1:1" id="UR0-j0-RoA"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1zn-Am-lhS">
-                                        <rect key="frame" x="0.0" y="280" width="280" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="lTO-vH-yug"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Yx6-N4-d7Y">
-                                        <rect key="frame" x="0.0" y="310" width="280" height="30"/>
                                         <subviews>
                                             <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Ch-Fj-MqU">
-                                                <rect key="frame" x="0.0" y="0.0" width="130" height="30"/>
                                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
-                                                <color key="tintColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="tintColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="No"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -58,10 +54,9 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FbQ-0c-EEy">
-                                                <rect key="frame" x="150" y="0.0" width="130" height="30"/>
-                                                <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
-                                                <color key="tintColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="tintColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="Yes"/>
                                                 <connections>
                                                     <action selector="buttonPressedYes:" destination="qfH-I4-lRF" eventType="touchUpInside" id="LYA-Jt-3eX"/>
@@ -80,8 +75,8 @@
                                 </constraints>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="0.98431372549019602" green="0.96862745098039216" blue="0.7803921568627451" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="tintColor" red="0.68235294117647061" green="0.20392156862745098" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.98431372549019602" green="0.96862745098039216" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="0.68235294117647061" green="0.20392156862745098" blue="0.13333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="01n-Dr-rrB" firstAttribute="top" secondItem="ZEQ-yd-sfI" secondAttribute="bottom" constant="8" symbolic="YES" id="FIM-mt-hbC"/>
                             <constraint firstItem="01n-Dr-rrB" firstAttribute="centerX" secondItem="1S1-wg-pBi" secondAttribute="centerX" id="YCT-Ad-L4k"/>
@@ -89,7 +84,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Tnk-nt-5ZH"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="buttonNext" destination="9Ch-Fj-MqU" id="zNi-1B-plp"/>
                         <outlet property="chooseCast" destination="1zn-Am-lhS" id="QIU-OX-ejJ"/>
@@ -110,26 +104,23 @@
                         <viewControllerLayoutGuide type="bottom" id="wXN-xj-Xwe"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="JDK-QB-xfe">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="bG3-NV-hI1">
-                                <rect key="frame" x="16" y="64" width="288" height="504"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yo Romeo" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L4Y-SF-zsI">
-                                        <rect key="frame" x="0.0" y="0.0" width="288" height="42"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V3k-96-mzo">
-                                        <rect key="frame" x="0.0" y="44" width="288" height="461"/>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="V3k-96-mzo">
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </imageView>
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="bG3-NV-hI1" firstAttribute="leading" secondItem="JDK-QB-xfe" secondAttribute="leadingMargin" id="KiZ-pC-5pC"/>
                             <constraint firstAttribute="trailingMargin" secondItem="bG3-NV-hI1" secondAttribute="trailing" id="TqI-td-PF6"/>
@@ -137,7 +128,6 @@
                             <constraint firstItem="wXN-xj-Xwe" firstAttribute="top" secondItem="bG3-NV-hI1" secondAttribute="bottom" id="iCQ-HA-Ika"/>
                         </constraints>
                     </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="imageView" destination="V3k-96-mzo" id="dey-b1-32L"/>
                         <outlet property="labelActorsLines" destination="L4Y-SF-zsI" id="uqj-gb-1YG"/>
@@ -145,14 +135,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kzv-ud-aes" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1625" y="335"/>
+            <point key="canvasLocation" x="2017" y="334"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="9de-z0-nEv">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="no1-du-xWa" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="T4N-2X-Sgw">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -164,7 +153,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lUk-ZO-n5A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="740" y="335"/>
+            <point key="canvasLocation" x="217" y="334"/>
         </scene>
     </scenes>
 </document>

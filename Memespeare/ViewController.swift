@@ -28,7 +28,7 @@ class ViewController: UIViewController  {
     
     var currentIndex = 0
     
-    var tempURL = [NSURL?]()
+    var tempURL = [URL?]()
     
 
     
@@ -40,7 +40,7 @@ class ViewController: UIViewController  {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        UIDevice.currentDevice().setValue(UIInterfaceOrientation.Portrait.rawValue, forKey: "orientation")
+        UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
         
         
         populateCast()
@@ -48,18 +48,18 @@ class ViewController: UIViewController  {
         
         templateIds = [String]()
         
-        self.buttonNext.enabled = false
+        self.buttonNext.isEnabled = false
         let api = ImgFlipController()
         
         var counter = 0
         api.getMemeIds() { responseObject, error in
-            if let memeIds = responseObject as? [String] {
+            if let memeIds = responseObject {
                 print("\(counter)")
                 counter += 1
                 print("memeIds = \(memeIds); error = \(error)")
                 self.templateIds = memeIds
                 
-                dispatch_async(dispatch_get_main_queue()) {
+                DispatchQueue.main.async {
                     
                     self.chooseCastMembers()
                 }
@@ -69,18 +69,18 @@ class ViewController: UIViewController  {
     }
 
     
-    private func chooseCastMembers() {
+    fileprivate func chooseCastMembers() {
         
         currentTemplateId = "\(self.possibleRomeos[0])"
         displaySpecificMeme(self.possibleRomeos[0])
-        buttonNext.enabled = true
+        buttonNext.isEnabled = true
         chooseCast.text = self.castPrompt[self.currentIndex]
     }
     
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        UIDevice.currentDevice().setValue(UIInterfaceOrientation.Portrait.rawValue, forKey: "orientation")
+        UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
         if templateIds.count > 0 {
             tempURL.removeAll()
             currentIndex = 0
@@ -88,18 +88,18 @@ class ViewController: UIViewController  {
         }
     }
     
-    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        return [.Portrait]
+    override var supportedInterfaceOrientations : UIInterfaceOrientationMask {
+        return [.portrait]
     }
     
     
     
-    override func shouldAutorotate() -> Bool {
+    override var shouldAutorotate : Bool {
         return false
     }
     
     
-    private func populateCast() {
+    fileprivate func populateCast() {
         
         let romeo = CastMember()
         romeo.name = "Romeo"
@@ -129,18 +129,18 @@ class ViewController: UIViewController  {
     }
     
     
-    private func randRange(lower: Int, upper: Int) -> Int {
+    fileprivate func randRange(_ lower: Int, upper: Int) -> Int {
         return lower + Int(arc4random_uniform(UInt32(upper - lower + 1)))
     }
     
     
-    private func getRandomTemplateId() -> Int {
+    fileprivate func getRandomTemplateId() -> Int {
         // fixed bug => upper = count - 1
         let upper: Int = self.templateIds.count - 1
         return randRange(0, upper: upper)
     }
     
-    private func displayRandomMeme() -> String {
+    fileprivate func displayRandomMeme() -> String {
         let templateId = self.templateIds[getRandomTemplateId()]
         
         captionImage(Int(templateId)!)
@@ -148,14 +148,14 @@ class ViewController: UIViewController  {
     }
     
     
-    private func displaySpecificMeme(templateId: Int) -> Int {
+    fileprivate func displaySpecificMeme(_ templateId: Int) -> Int {
         
         captionImage(templateId)
         return templateId
     }
     
     
-    private func displayCast() {
+    fileprivate func displayCast() {
         
         var actualId: Int = 61533
         
@@ -172,12 +172,12 @@ class ViewController: UIViewController  {
     }
     
     
-    @IBAction func buttonPressedNext(sender: UIButton) {
+    @IBAction func buttonPressedNext(_ sender: UIButton) {
         displayCast()
     }
     
     
-    @IBAction func buttonPressedYes(sender: AnyObject) {
+    @IBAction func buttonPressedYes(_ sender: AnyObject) {
         
         let cast = uiRealm.objects(Cast.self)
         
@@ -203,45 +203,49 @@ class ViewController: UIViewController  {
     
     
     func switchScreen() {
-        performSegueWithIdentifier(String(SwipePlayViewController), sender: self)
+        performSegue(withIdentifier: String(describing: SwipePlayViewController.self), sender: self)
 //        let mainStoryboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
 //        let vc : SwipePlayViewController = mainStoryboard.instantiateViewControllerWithIdentifier("SwipePlay") as! SwipePlayViewController
 //        self.presentViewController(vc, animated: true, completion: nil)
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let destination = segue.destinationViewController as? SwipePlayViewController {
-            destination.imageURLs = tempURL
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? SwipePlayViewController {
+            destination.imageURLs = tempURL as [URL?]
         }
     }
     
     
-    private func captionImage(templateId: Int) {
+    fileprivate func captionImage(_ templateId: Int) {
         let api = ImgFlipController()
         
         api.captionImage(templateId, topCaption: " ") { responseObject, error in
             
-            guard let memeImgURL = responseObject where error == nil else {
+            guard let memeImgURL = responseObject , error == nil else {
                 
-                let alertController = UIAlertController(title: "Error", message: "Invalid Template ID.", preferredStyle: .Alert)
+                let alertController = UIAlertController(title: "Error", message: "Invalid Template ID.", preferredStyle: .alert)
                 
-                let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
+                let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
                     // ...
                 }
                 alertController.addAction(OKAction)
                 
-                dispatch_async(dispatch_get_main_queue())  {
-                    self.presentViewController(alertController, animated: true) {
+                DispatchQueue.main.async  {
+                    self.present(alertController, animated: true) {
                 }
                 }
                 return
             }
-            self.tempURL.append(NSURL(string: memeImgURL))
+            self.tempURL.append(URL(string: memeImgURL))
             
-            self.viewMemeImage.contentMode = .Center
-            self.viewMemeImage.sd_setImageWithURL(NSURL(string: memeImgURL), placeholderImage: UIImage.init(named: "download_icon")) { _,_,_,_ in
-                dispatch_async(dispatch_get_main_queue())  {
-                    self.viewMemeImage.contentMode = .ScaleAspectFill
+            self.viewMemeImage.contentMode = .center
+            
+            self.viewMemeImage.image = UIImage.init(named: "download_icon")
+            
+            self.viewMemeImage.sd_setImage(with: URL(string: memeImgURL))
+     { _,_,_,_ in
+                DispatchQueue.main.async  {
+                    self.viewMemeImage.contentMode = .scaleAspectFill
                 }
             }
         }
